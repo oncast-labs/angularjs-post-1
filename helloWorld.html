@@ -1,0 +1,26 @@
+<html ng-app>
+  <head>
+    <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+    <script src="Controlador.js"></script>
+  </head>
+  <body>
+    <div ng-controller="Controlador">
+        <form>Nome:
+            <input type="text" ng-model="usuario.nome" />
+            <br />E-mail:
+            <input type="text" ng-model="usuario.email" />
+            <br />
+            <button ng-click="reset()">Limpar</button>
+            <button ng-click="update(usuario)">Salvar</button>
+        </form>
+        Procure por:
+        <input type="text" placeholder="termo de pesquisa" ng-model="pesquisa" />
+         <h3> Lista de Usuarios </h3> 
+        <ul>
+            <li ng-repeat="usuario in listaUsuarios | filter:pesquisa">{{usuario.nome}} | {{ usuario.email }}</li>
+        </ul>
+    </div>
+
+
+  </body>
+</html>
